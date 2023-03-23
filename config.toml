@@ -7,7 +7,7 @@ publishDir = 'docs'
 
 [params]
 author = "Thilanka Liyanaarachchi"
-user = "thilanka"
+user = "thilankal"
 hostname = "github.io"
 
 [[params.social]]
@@ -18,14 +18,14 @@ url = "https://github.com/nuwan89"
 [[params.social]]
 key = 1
 name = "twitter"
-url = "https://www.example.com"
+url = "https://twitter.com/findthila"
 
 [[params.social]]
 key = 2
 name = "linkedin"
-url = "https://www.example.com"
+url = "https://www.linkedin.com/in/thilanka-liyanaarachchi-bb05532a/"
 
 [[params.social]]
 key = 3
 name = "email"
-url = "mailto:email@example.com"
+url = "mailto:catchthila@gmail.com"
