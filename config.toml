@@ -1,0 +1,31 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 'nightfall'
+publishDir = 'docs'
+
+
+[params]
+author = "Thilanka Liyanaarachchi"
+user = "thilanka"
+hostname = "github.io"
+
+[[params.social]]
+key = 0
+name = "github"
+url = "https://github.com/nuwan89"
+
+[[params.social]]
+key = 1
+name = "twitter"
+url = "https://www.example.com"
+
+[[params.social]]
+key = 2
+name = "linkedin"
+url = "https://www.example.com"
+
+[[params.social]]
+key = 3
+name = "email"
+url = "mailto:email@example.com"
