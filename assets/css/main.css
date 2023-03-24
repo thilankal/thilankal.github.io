@@ -5,3 +5,9 @@
         width: 100%;
     }
 }
+
+.date-header {
+    color: rgb(144, 158, 170);
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}   
