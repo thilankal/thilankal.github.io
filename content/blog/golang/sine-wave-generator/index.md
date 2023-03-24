@@ -4,8 +4,14 @@ date: 2023-03-22T10:55:38+05:30
 author: Thila
 tags: [go]
 categories: ["go"]
+description: Tutorial on generating Sine waves using Golang
+images:
+- wave.jpg
+featured_image: wave.jpg
+
 # menu: mainx
 ---
+
 
 Let's build a continuous [sine wave](https://en.wikipedia.org/wiki/Sine_wave) generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.
 

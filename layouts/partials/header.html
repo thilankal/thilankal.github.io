@@ -1,13 +1,14 @@
 <header class="headerWrapper">
+    
+
     <div class="header">
         <div>
             <a href="{{ .Site.BaseURL }}">
                 <span class="terminal">{{ .Site.Params.user }}.{{ .Site.Params.hostname }} ~ $</span>
             </a>
         </div>
-        {{ partial "search-form.html" . }}
         <div class="hamburg-container">
-            <input class="side-menu" type="checkbox" id="side-menu"/>
+            <input class="side-menu" type="checkbox" id="side-menu" onclick="toggle()"/>
             <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
         </div>
         <nav class="headerLinks">
@@ -23,3 +24,48 @@
         </nav>
     </div>
 </header>
+
+<div class="side-bar">
+    <ul>
+        {{ range .Site.Menus.header }}
+        <li>
+            <a href="{{ .URL | absURL }}" title="{{ .Title }}" >
+                ~/{{- .Name -}}
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+
+<script>
+    var collapsed = false;
+    let sidebar = document.getElementsByClassName("side-bar")[0]
+    let sMenu = document.getElementById("side-menu")
+    toggle()
+    function toggle() {
+        if (sMenu.checked) {
+            console.log("checked");
+            sidebar.style.display = "block";
+        } else {
+            sidebar.style.display = "none";    
+        }
+        collapsed = !collapsed;
+        
+    }
+</script>
+
+<style>
+    .side-bar {
+        position: absolute;
+        /* position: fixed; */
+        top: 2.8rem;
+        right: 0;
+        width: 200px;
+        height: 100%;
+        background-color: #202125;
+    }
+
+    .side-bar > ul {
+        list-style: none;
+    }
+</style>

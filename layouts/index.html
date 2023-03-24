@@ -20,6 +20,9 @@
                 <div class="indexWrapper">
                     <div>
                         <h1 class="indexHeader">{{ .Site.Params.author }}</h1>
+                        <div class="home-search-container">
+                            {{ partial "search-form.html" . }}
+                        </div>
                     </div>
                     {{ partial "social.html" . }}
                 </div>
@@ -35,6 +38,16 @@
 <style>
     .indexHeader {
         font-size: xx-large;
+    }
+
+    .item-list {
+        list-style-type: none;
+    }
+
+    .home-search-container {
+        margin-left: auto;
+        margin-right: auto;
+        /* margin-right: 62%; */
     }
 </style>
 

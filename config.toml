@@ -10,10 +10,15 @@ author = "Thilanka Liyanaarachchi"
 user = "thilankal"
 hostname = "github.io"
 
-[[params.social]]
-key = 0
-name = "blog"
-url = "/blog"
+# [[params.social]]
+# key = 0
+# name = "blog"
+# url = "/blog"
+
+# [[params.social]]
+# key = 1
+# name = "about me"
+# url = "/about"
 
 [[params.social]]
 key = 0

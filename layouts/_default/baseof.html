@@ -14,6 +14,9 @@
 
     <div class="flexWrapper">
         {{ partial "header.html" . }}
+        <div class="page-search-container">
+            {{ partial "search-form.html" . }}
+        </div>
 
         <div class="content">
             <main class="main">
@@ -27,5 +30,17 @@
     </div>
 
 </body>
+
+<style>
+    .page-search-container {
+        margin-left: 60%;
+    }
+
+     @media screen and (max-width: 600px) {
+        .page-search-container {
+            /* margin-left: 0; */
+        }
+     }
+</style>
 
 </html>

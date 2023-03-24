@@ -8,6 +8,10 @@
     <h1>{{ .Title }}</h1>
     <div class="date-header">{{ .Date.Format "January 2, 2006" }}</div>
     <div>
+        {{ $image := .Resources.GetMatch "cover.jpg" }}
+        {{ with $image }}
+            <img src="{{ .RelPermalink }}" width="700" height="300">
+        {{ end }}
         {{ .Content }}
     </div>
 </div>

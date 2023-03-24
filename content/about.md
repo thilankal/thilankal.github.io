@@ -1,25 +1,18 @@
 +++
-title = "About"
-description = "Hugo, the world's fastest framework for building websites"
-date = "2019-02-28"
-aliases = ["about-us", "about-hugo", "contact"]
-author = "Hugo Authors"
+title = 'About'
+description = "About Thilanka"
+date = "2023-03-24"
+aliases = ["about-us", "about-thilanka", "contact"]
+author = "Thilanka Liyanaarachchi"
+menu = 'header'
 +++
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Welcome to my personal website! My name is Thilanka Liyanaarachchi, and I am a Senior Tech Lead based in Sri Lanka. With over 8 years of experience in the industry, I have honed my skills in `Java`, Scala, and backend development. Additionally, I have experience in frontend development with SvelteJS and Angular, and I am passionate about exploring new technologies to enhance my skill set.
 
-Hugo makes use of a variety of open source projects including:
+I also have expertise in DevOps, with experience working with AWS, GitLab, Kubernetes, and Terraform. Through my work, I have developed a strong understanding of the software development lifecycle and enjoy the challenges of ensuring seamless integration between development and operations.
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+This website serves as a portfolio of my work and experiences, and I am excited to share my knowledge and insights with others in the community. Whether you are a fellow developer, a potential collaborator, or just interested in learning more about my work, I hope you find my website informative and engaging. Thank you for visiting!
 
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
 
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
 
-Websites built with Hugo are extremely fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
 
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
