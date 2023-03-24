@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://thilankal.github.io/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'nightfall'
@@ -9,6 +9,11 @@ publishDir = 'docs'
 author = "Thilanka Liyanaarachchi"
 user = "thilankal"
 hostname = "github.io"
+
+[[params.social]]
+key = 0
+name = "blog"
+url = "/blog"
 
 [[params.social]]
 key = 0

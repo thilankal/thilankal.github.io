@@ -5,8 +5,11 @@
                 <span class="terminal">{{ .Site.Params.user }}.{{ .Site.Params.hostname }} ~ $</span>
             </a>
         </div>
-        <input class="side-menu" type="checkbox" id="side-menu"/>
-        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        {{ partial "search-form.html" . }}
+        <div class="hamburg-container">
+            <input class="side-menu" type="checkbox" id="side-menu"/>
+            <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        </div>
         <nav class="headerLinks">
             <ul>
                 {{ range .Site.Menus.header }}

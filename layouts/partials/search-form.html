@@ -1,0 +1,36 @@
+<!-- action to the search page permalink, HTTP method get is enough -->
+<div class="search-container">
+    <form id="search" action='{{ with .GetPage "/search" }}{{.Permalink}}{{end}}' method="get" autocomplete="off">
+        <label hidden for="search-input">Search</label>
+        <input type="text" id="search-input" name="query" placeholder="🔍">
+    </form>
+</div>
+
+<style>
+    .search-container {
+        margin-left: auto;
+    }
+    .search-container>form>input {
+        background-color: #2f2f2f;
+        color: #f8f8ff;
+        text-align: left;
+
+    }
+
+    /* webkit solution */
+    .search-container>form>input::-webkit-input-placeholder {
+        text-align: right;
+    }
+
+    /* mozilla solution */
+    input:-moz-placeholder {
+        text-align: right;
+    }
+
+
+    @media screen and (max-width: 600px) {
+        .search-container {
+            display: none;
+        }
+    }
+</style>
