@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on My New Hugo Site</title>
-    <link>https://thilankal.github.io/blog/</link>
-    <description>Recent content in Blogs on My New Hugo Site</description>
+    <title>go on My New Hugo Site</title>
+    <link>https://thilankal.github.io/categories/go/</link>
+    <description>Recent content in go on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Mar 2023 00:12:05 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>B grade movies gg</title>
-      <link>https://thilankal.github.io/blog/b/</link>
-      <pubDate>Fri, 24 Mar 2023 00:12:05 +0530</pubDate>
-      
-      <guid>https://thilankal.github.io/blog/b/</guid>
-      <description>Someone likes B </description>
-    </item>
-    
-    <item>
-      <title>Notion of music gg</title>
-      <link>https://thilankal.github.io/blog/a/</link>
-      <pubDate>Fri, 24 Mar 2023 00:12:05 +0530</pubDate>
-      
-      <guid>https://thilankal.github.io/blog/a/</guid>
-      <description>Displaying A grade music all about music in this post </description>
-    </item>
-    
+    <lastBuildDate>Wed, 22 Mar 2023 10:55:38 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/categories/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sine wave generator using Golang</title>
       <link>https://thilankal.github.io/blog/golang/go-sine-wave-generator/</link>

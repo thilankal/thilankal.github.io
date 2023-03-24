@@ -2,28 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My New Hugo Site</title>
-    <link>http://example.org/</link>
+    <link>https://thilankal.github.io/</link>
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Mar 2023 00:12:05 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About</title>
-      <link>http://example.org/about/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      <title>B grade movies gg</title>
+      <link>https://thilankal.github.io/blog/b/</link>
+      <pubDate>Fri, 24 Mar 2023 00:12:05 +0530</pubDate>
       
-      <guid>http://example.org/about/</guid>
-      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
-Hugo makes use of a variety of open source projects including:
-https://github.com/yuin/goldmark https://github.</description>
+      <guid>https://thilankal.github.io/blog/b/</guid>
+      <description>Someone likes B </description>
     </item>
     
     <item>
-      <title></title>
-      <link>http://example.org/blog/a/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Notion of music gg</title>
+      <link>https://thilankal.github.io/blog/a/</link>
+      <pubDate>Fri, 24 Mar 2023 00:12:05 +0530</pubDate>
       
-      <guid>http://example.org/blog/a/</guid>
-      <description>Welcome to my personal blog </description>
+      <guid>https://thilankal.github.io/blog/a/</guid>
+      <description>Displaying A grade music all about music in this post </description>
+    </item>
+    
+    <item>
+      <title>Sine wave generator using Golang</title>
+      <link>https://thilankal.github.io/blog/golang/go-sine-wave-generator/</link>
+      <pubDate>Wed, 22 Mar 2023 10:55:38 +0530</pubDate>
+      
+      <guid>https://thilankal.github.io/blog/golang/go-sine-wave-generator/</guid>
+      <description>Let&amp;rsquo;s build a continuous sine wave generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.
+How digital audio works We know that sound waves are vibrations travelling through air. These vibrations cause air pressure changes from sound source (Generator in our case) to receiver (our ears) over time. It is important to note that air particles do not travel with vibrations to receiver.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://thilankal.github.io/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://thilankal.github.io/about/</guid>
+      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hugo makes use of a variety of open source projects including:
+https://github.com/yuin/goldmark https://github.</description>
     </item>
     
   </channel>

@@ -2,17 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/about/</loc>
+    <loc>https://thilankal.github.io/</loc>
+    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/blog/b/</loc>
+    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/blog/</loc>
+    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/tags/java/</loc>
+    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/tags/music/</loc>
+    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/blog/a/</loc>
+    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/tags/</loc>
+    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/categories/</loc>
+    <lastmod>2023-03-22T10:55:38+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/tags/go/</loc>
+    <lastmod>2023-03-22T10:55:38+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/categories/go/</loc>
+    <lastmod>2023-03-22T10:55:38+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/blog/golang/go-sine-wave-generator/</loc>
+    <lastmod>2023-03-22T10:55:38+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
-  </url><url>
-    <loc>http://example.org/blog/a/</loc>
-  </url><url>
-    <loc>http://example.org/blog/</loc>
-  </url><url>
-    <loc>http://example.org/categories/</loc>
-  </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://thilankal.github.io/search/</loc>
   </url>
 </urlset>

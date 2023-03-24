@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>
+Sine wave generator using Golang | Thilanka Liyanaarachchi
+</title>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="generator" content="Hugo 0.111.3">
+
+
+<link rel="canonical" href="https://thilankal.github.io/blog/golang/go-sine-wave-generator/" >
+<link href="/sass/main.min.edade1a6b5d26a86d4be830e647bf49d1e3e84136c10bc0846c75469fec12f83.css" rel="stylesheet">
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+
+
+<script>
+    window.store = {
+        
+        
+    
+    
+    "https:\/\/thilankal.github.io\/blog\/b\/": {
+        
+        "title": "B grade movies gg",
+        "date": "2023-03-24 00:12:05 \u002b0530 \u002b0530",
+            "tags": [],
+    "content": "Someone likes B ", 
+    "url": "https:\/\/thilankal.github.io\/blog\/b\/"
+        },
+    
+    
+    
+    "https:\/\/thilankal.github.io\/blog\/": {
+        
+        "title": "Blogs",
+        "date": "2023-03-24 00:12:05 \u002b0530 \u002b0530",
+            "tags": [],
+    "content": "", 
+    "url": "https:\/\/thilankal.github.io\/blog\/"
+        },
+    
+    
+    
+    "https:\/\/thilankal.github.io\/blog\/a\/": {
+        
+        "title": "Notion of music gg",
+        "date": "2023-03-24 00:12:05 \u002b0530 \u002b0530",
+            "tags": [ "java",  "music", ],
+    "content": "Displaying A grade music all about music in this post ", 
+    "url": "https:\/\/thilankal.github.io\/blog\/a\/"
+        },
+    
+    
+    
+    "https:\/\/thilankal.github.io\/blog\/golang\/go-sine-wave-generator\/": {
+        
+        "title": "Sine wave generator using Golang",
+        "date": "2023-03-22 10:55:38 \u002b0530 \u002b0530",
+            "tags": [ "go", ],
+    "content": "Let\u0026rsquo;s build a continuous sine wave generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.\nHow digital audio works We know that sound waves are vibrations travelling through air. These vibrations cause air pressure changes from sound source (Generator in our case) to receiver (our ears) over time. It is important to note that air particles do not travel with vibrations to receiver. So fundamentally the air pressure and the time is only needed to capture sound from the receiver\u0026rsquo;s perspective.\nNumber of pressure variations per second is called the frequency of sound. The size of the pressure difference is called the amplitude of the sound. Silence is when the sound pressure remains at the atmospheric pressure.\nSample rate and Nyquist theorem In order to represent sounds in the digital world, we need to take samples of sound pressure levels at a regular intervals. Number of samples taken per second is known as the sample rate. A higher sample rate can accurately represent an audio signal at the cost of increased processing power and memory while a lower sample rate may miss higher frequencies. So it\u0026rsquo;s clear that sample rate depends on the frequency of the signal. Since human hearing is limited to 20hz to 20Khz frequency range, our sample rate should support this range. But how do we know the optimum sample rate for reproducing an audio signal in our audible frequency spectrum? Well Nyquist–Shannon sampling theorem states that it\u0026rsquo;s possible to reproduce any sound if the sampling rate is two times the highest frequency of the source signal. Since most humans cannot listen to frequencies above 20khz, a sample rate of 40khz is theoretically sufficient. But the CD quality standard is defined as 44.1kHz/44000Hz.\nWhat we are going to build? We are going to build a sound wave generator that\u0026rsquo;s going to emit a sine wave with a given frequency continuously in Go.\nWe will be using beep go package to process audio signals and playback sounds. Beep uses oto under the hood for audio playback.\nSetting up project Create a new directory and initialize root module\ngo mod init github.com/nuwan89/sine-generator This will create the root module as follows:\nmodule github.com/nuwan89/sine-generator go 1.17 Installing Go dependencies go get github.com/faiface/beep go get github.com/hajimehoshi/oto Initializing beep Stick the below code inside the main function. Don\u0026rsquo;t worry we\u0026rsquo;ll go through each line.\nfunc main() { sr := beep.SampleRate(44100) speaker.Init(sr, sr.N(time.Second/10)) // sr.N(time.Second/10) = buffer size for duration 1/10 second sine, _ := SineTone(sr, 100) speaker.Play(sine) select {} // makes the program hang forever } Firstly we define the sample rate as 44100Hz. Then we initialize the Speaker with the sample rate and the buffer size (one tenth of a second). Instead of reading samples in real-time, the speaker reads from a buffer with a delay. This allows the audio to be played back in a continuous manner without drop outs and glitches. SineTone is a builder function for a Streamer that we are going to implement in which its only job is to stream infinite sequence of audio samples. It needs a sample rate and a frequency (100Hz) Finally we can blast audio through the speakers using the given Streamer :) type SineWave struct { sampleFactor float64 // Just for ease of use so that we don\u0026#39;t have to calculate every sample phase float64 } func (g *SineWave) Stream(samples [][2]float64) (n int, ok bool) { for i := range samples { // increment = ((2 * PI) / SampleRate) * freq v := math.Sin(g.phase * 2.0 * math.Pi) // period of the wave is thus defined as: 2 * PI. samples[i][0] = v samples[i][1] = v _, g.phase = math.Modf(g.phase + g.sampleFactor) } return len(samples), true } func (*SineWave) Err() error { return nil } SineWave is just a struct which stores properties of our sine wave. Phase of the sound wave is basically the current position of the sine wave. This is represented by radians.\nStream function is the most important one here. It receives a two-dimensional array which we are going to fill. Each dimension represents left and right channel of the signal.\nWe are looping through each sample point and calculate the sine value of the phase.\nWe need to factor in frequency for calculating the next phase.\nmath.Modf gives us the fractional component so that the phase cycles between 0 - 1\nI have copied the SineTone initializer method for the sake of completeness.\nfunc SineTone(sr beep.SampleRate, freq float64) (beep.Streamer, error) { dt := freq / float64(sr) if dt \u0026gt;= 1.0/2.0 { return nil, errors.New(\u0026#34;samplerate must be at least 2 times grater then frequency\u0026#34;) } return \u0026amp;SineWave{dt, 0.1}, nil } Oh and one more thing.. You need to run tidy command to add import statements in your module file:\ngo mod tidy Finally you can run it using:\ngo run main.go Enjoy the never ending 100Hz sine wave awesomeness! :)\nGitHub project\n", 
+    "url": "https:\/\/thilankal.github.io\/blog\/golang\/go-sine-wave-generator\/"
+        },
+    
+    }
+</script>
+
+
+
+
+<script src="/js/main.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="flexWrapper">
+        <header class="headerWrapper">
+    <div class="header">
+        <div>
+            <a href="https://thilankal.github.io/">
+                <span class="terminal">thilankal.github.io ~ $</span>
+            </a>
+        </div>
+        
+<div class="search-container">
+    <form id="search" action='https://thilankal.github.io/search/' method="get" autocomplete="off">
+        <label hidden for="search-input">Search</label>
+        <input type="text" id="search-input" name="query" placeholder="🔍">
+    </form>
+</div>
+
+<style>
+    .search-container {
+        margin-left: auto;
+    }
+    .search-container>form>input {
+        background-color: #2f2f2f;
+        color: #f8f8ff;
+        text-align: left;
+
+    }
+
+     
+    .search-container>form>input::-webkit-input-placeholder {
+        text-align: right;
+    }
+
+     
+    input:-moz-placeholder {
+        text-align: right;
+    }
+
+
+    @media screen and (max-width: 600px) {
+        .search-container {
+            display: none;
+        }
+    }
+</style>
+        <div class="hamburg-container">
+            <input class="side-menu" type="checkbox" id="side-menu"/>
+            <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        </div>
+        <nav class="headerLinks">
+            <ul>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="content">
+            <main class="main">
+                
+<div class="postWrapper">
+    <h1>Sine wave generator using Golang</h1>
+    <div>
+        <p>Let&rsquo;s build a continuous <a href="https://en.wikipedia.org/wiki/Sine_wave">sine wave</a> generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.</p>
+<h3 id="how-digital-audio-works">How digital audio works</h3>
+<p>We know that sound waves are vibrations travelling through air. These vibrations cause air <em>pressure</em> changes from sound source (Generator in our case) to receiver (our ears) over <em>time</em>. It is important to note that air particles do not travel with vibrations to receiver. So fundamentally the air pressure and the time is only needed to capture sound from the receiver&rsquo;s perspective.</p>
+<p>Number of pressure variations per second is called the <em>frequency</em> of sound. The size of the pressure difference is called the <em>amplitude</em> of the sound. Silence is when the sound pressure remains at the atmospheric pressure.</p>
+<h3 id="sample-rate-and-nyquist-theorem">Sample rate and Nyquist theorem</h3>
+<p>In order to represent sounds in the digital world, we need to take samples of sound pressure levels at a regular intervals. Number of samples taken per second is known as the <em>sample rate</em>. A higher sample rate can accurately represent an audio signal at the cost of increased processing power and memory while a lower sample rate may miss higher frequencies. So it&rsquo;s clear that sample rate depends on the frequency of the signal. Since human hearing is limited to 20hz to 20Khz frequency range, our sample rate should support this range. But how do we know the optimum sample rate for reproducing an audio signal in our audible frequency spectrum? Well <em><a href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem">Nyquist–Shannon sampling theorem</a></em> states that it&rsquo;s possible to reproduce any sound if the sampling rate is two times the highest frequency of the source signal. Since most humans cannot listen to frequencies above 20khz, a sample rate of 40khz is theoretically sufficient. But the CD quality standard is defined as 44.1kHz/44000Hz.</p>
+<h3 id="what-we-are-going-to-build">What we are going to build?</h3>
+<p>We are going to build a sound wave generator that&rsquo;s going to emit a sine wave with a given frequency continuously in Go.</p>
+<p>We will be using <a href="https://github.com/faiface/beep">beep</a> go package to process audio signals and playback sounds. Beep uses <a href="https://github.com/hajimehoshi/oto">oto</a> under the hood for audio playback.</p>
+<h3 id="setting-up-project">Setting up project</h3>
+<p>Create a new directory and initialize root module</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go mod init github.com/nuwan89/sine-generator 
+</span></span></code></pre></div><p>This will create the root module as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">module</span> <span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">nuwan89</span><span style="color:#f92672">/</span><span style="color:#a6e22e">sine</span><span style="color:#f92672">-</span><span style="color:#a6e22e">generator</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#ae81ff">1.17</span>
+</span></span></code></pre></div><h3 id="installing-go-dependencies">Installing Go dependencies</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go get github.com/faiface/beep 
+</span></span><span style="display:flex;"><span>go get github.com/hajimehoshi/oto
+</span></span></code></pre></div><h3 id="initializing-beep">Initializing beep</h3>
+<p>Stick the below code inside the <code>main</code> function. Don&rsquo;t worry we&rsquo;ll go through each line.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">sr</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">beep</span>.<span style="color:#a6e22e">SampleRate</span>(<span style="color:#ae81ff">44100</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">speaker</span>.<span style="color:#a6e22e">Init</span>(<span style="color:#a6e22e">sr</span>, <span style="color:#a6e22e">sr</span>.<span style="color:#a6e22e">N</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)) <span style="color:#75715e">// sr.N(time.Second/10) = buffer size for duration 1/10 second
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">sine</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">SineTone</span>(<span style="color:#a6e22e">sr</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">speaker</span>.<span style="color:#a6e22e">Play</span>(<span style="color:#a6e22e">sine</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">select</span> {} <span style="color:#75715e">// makes the program hang forever
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><ul>
+<li>Firstly we define the sample rate as 44100Hz.</li>
+<li>Then we initialize the Speaker with the sample rate and the buffer size (one tenth of a second).
+<ul>
+<li>Instead of reading samples in real-time, the speaker reads from a buffer with a delay. This allows the audio to be played back in a continuous manner without drop outs and glitches.</li>
+</ul>
+</li>
+<li><em>SineTone</em> is a builder function for a Streamer that we are going to implement in which its only job is to stream infinite  sequence of audio <em>samples</em>. It needs a sample rate and a frequency (100Hz)</li>
+<li>Finally we can blast audio through the speakers using the given Streamer :)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">SineWave</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">sampleFactor</span> <span style="color:#66d9ef">float64</span> <span style="color:#75715e">// Just for ease of use so that we don&#39;t have to calculate every sample
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">phase</span>        <span style="color:#66d9ef">float64</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">g</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">SineWave</span>) <span style="color:#a6e22e">Stream</span>(<span style="color:#a6e22e">samples</span> [][<span style="color:#ae81ff">2</span>]<span style="color:#66d9ef">float64</span>) (<span style="color:#a6e22e">n</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">ok</span> <span style="color:#66d9ef">bool</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">samples</span> { <span style="color:#75715e">// increment = ((2 * PI) / SampleRate) * freq
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Sin</span>(<span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">phase</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2.0</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Pi</span>) <span style="color:#75715e">// period of the wave is thus defined as: 2 * PI.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">samples</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">0</span>] = <span style="color:#a6e22e">v</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">samples</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">1</span>] = <span style="color:#a6e22e">v</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">phase</span> = <span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Modf</span>(<span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">phase</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">sampleFactor</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> len(<span style="color:#a6e22e">samples</span>), <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#f92672">*</span><span style="color:#a6e22e">SineWave</span>) <span style="color:#a6e22e">Err</span>() <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>
+<p><em>SineWave</em> is just a struct which stores properties of our sine wave. Phase of the sound wave is basically the current position of the sine wave. This is represented by radians.</p>
+</li>
+<li>
+<p><em>Stream</em> function is the most important one here. It receives a two-dimensional array which we are going to fill. Each dimension represents left and right channel of the signal.</p>
+</li>
+<li>
+<p>We are looping through each sample point and calculate the sine value of the phase.</p>
+</li>
+<li>
+<p>We need to factor in frequency for calculating the next phase.</p>
+</li>
+<li>
+<p><code>math.Modf</code> gives us the fractional component so that the phase cycles between 0 - 1</p>
+</li>
+</ul>
+<p>I have copied the SineTone initializer method for the sake of completeness.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">SineTone</span>(<span style="color:#a6e22e">sr</span> <span style="color:#a6e22e">beep</span>.<span style="color:#a6e22e">SampleRate</span>, <span style="color:#a6e22e">freq</span> <span style="color:#66d9ef">float64</span>) (<span style="color:#a6e22e">beep</span>.<span style="color:#a6e22e">Streamer</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">dt</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">freq</span> <span style="color:#f92672">/</span> float64(<span style="color:#a6e22e">sr</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">dt</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;samplerate must be at least 2 times grater then frequency&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">SineWave</span>{<span style="color:#a6e22e">dt</span>, <span style="color:#ae81ff">0.1</span>}, <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Oh and one more thing.. You need to run tidy command to add import statements in your module file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go mod tidy
+</span></span></code></pre></div><p>Finally you can run it using:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go run main.go
+</span></span></code></pre></div><p>Enjoy the never ending 100Hz sine wave awesomeness! :)</p>
+<p><a href="https://github.com/nuwan89/sine-wave-generator-example">GitHub project</a></p>
+
+    </div>
+</div>
+
+            </main>
+        </div>
+
+
+        <footer class="footer">
+    © 2023 Thilanka Liyanaarachchi
+    
+</footer>
+
+<style>
+    .footer {
+        font-size: xx-small;
+    }
+</style>
+    </div>
+
+</body>
+
+</html>
