@@ -3,3 +3,6 @@
 <!-- Preload pages -->
 {{ partial "search-index.html" . }}
 
+{{ $styleMain := resources.Get "css/main.css" | minify | fingerprint }}
+<link href="{{ $styleMain.RelPermalink }}" rel="stylesheet">
+
