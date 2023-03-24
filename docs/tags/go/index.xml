@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 22 Mar 2023 10:55:38 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sine wave generator using Golang</title>
-      <link>https://thilankal.github.io/blog/golang/go-sine-wave-generator/</link>
+      <link>https://thilankal.github.io/blog/golang/sine-wave-generator/</link>
       <pubDate>Wed, 22 Mar 2023 10:55:38 +0530</pubDate>
       
-      <guid>https://thilankal.github.io/blog/golang/go-sine-wave-generator/</guid>
+      <guid>https://thilankal.github.io/blog/golang/sine-wave-generator/</guid>
       <description>Let&amp;rsquo;s build a continuous sine wave generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.
 How digital audio works We know that sound waves are vibrations travelling through air. These vibrations cause air pressure changes from sound source (Generator in our case) to receiver (our ears) over time. It is important to note that air particles do not travel with vibrations to receiver.</description>
     </item>

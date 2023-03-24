@@ -6,7 +6,17 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Mar 2023 00:12:05 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Mar 2023 19:49:23 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://thilankal.github.io/about/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://thilankal.github.io/about/</guid>
+      <description>Welcome to my personal website! My name is Thilanka Liyanaarachchi, and I am a Senior Tech Lead based in Sri Lanka. With over 8 years of experience in the industry, I have honed my skills in Java, Scala, and backend development. Additionally, I have experience in frontend development with SvelteJS and Angular, and I am passionate about exploring new technologies to enhance my skill set.
+I also have expertise in DevOps, with experience working with AWS, GitLab, Kubernetes, and Terraform.</description>
+    </item>
+    
     <item>
       <title>B grade movies gg</title>
       <link>https://thilankal.github.io/blog/b/</link>
@@ -27,23 +37,12 @@
     
     <item>
       <title>Sine wave generator using Golang</title>
-      <link>https://thilankal.github.io/blog/golang/go-sine-wave-generator/</link>
+      <link>https://thilankal.github.io/blog/golang/sine-wave-generator/</link>
       <pubDate>Wed, 22 Mar 2023 10:55:38 +0530</pubDate>
       
-      <guid>https://thilankal.github.io/blog/golang/go-sine-wave-generator/</guid>
+      <guid>https://thilankal.github.io/blog/golang/sine-wave-generator/</guid>
       <description>Let&amp;rsquo;s build a continuous sine wave generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.
 How digital audio works We know that sound waves are vibrations travelling through air. These vibrations cause air pressure changes from sound source (Generator in our case) to receiver (our ears) over time. It is important to note that air particles do not travel with vibrations to receiver.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://thilankal.github.io/about/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://thilankal.github.io/about/</guid>
-      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
-Hugo makes use of a variety of open source projects including:
-https://github.com/yuin/goldmark https://github.</description>
     </item>
     
   </channel>
