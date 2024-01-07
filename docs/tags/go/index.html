@@ -9,7 +9,7 @@ go | Thilanka Liyanaarachchi
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="generator" content="Hugo 0.111.3">
+<meta name="generator" content="Hugo 0.114.0">
 
 
 <link rel="canonical" href="https://thilankal.github.io/tags/go/" >
@@ -24,6 +24,28 @@ go | Thilanka Liyanaarachchi
     window.store = {
         
         
+    
+    
+    "https:\/\/thilankal.github.io\/blog\/java\/streams\/": {
+        
+        "title": "Streams",
+        "date": "2024-01-06 23:53:19 \u002b0530 \u002b0530",
+            "tags": [],
+    "content": "map vs flatMap map is a one-to-one function map(f1t1) =\u0026gt; Stream\u0026lt;R\u0026gt; flatMap is a one-to-many function map(f1tn) =\u0026gt; Stream\u0026lt;List\u0026lt;R\u0026gt;\u0026gt; ", 
+    "url": "https:\/\/thilankal.github.io\/blog\/java\/streams\/"
+        },
+    
+    
+    
+    "https:\/\/thilankal.github.io\/blog\/java\/completable-futures\/then-compose\/": {
+        
+        "title": "Completable Futures - thenApply vs thenCompose",
+        "date": "2024-01-06 23:14:07 \u002b0530 \u002b0530",
+            "tags": [],
+    "content": "Let\u0026rsquo;s wrap a blocking operation in a CompletablFuture\npublic static Integer blockingCall(int x) { return x * 2; } public static CompletableFuture\u0026lt;Integer\u0026gt; asyncRunner(int x) { return CompletableFuture.supplyAsync(() -\u0026gt; blockingCall(x)); } Here we chain the outputs so that it prints the aggregated results. But this will print the future not the value (16)\npublic static void main(String[] args) { asyncRunner(4) .thenApply(data -\u0026gt; asyncRunner(data)) // returns CompletableFuture\u0026lt;Integer\u0026gt; yikes! - analogous to map operation .thenAccept(System.out::println) // returns CompletableFuture\u0026lt;Void\u0026gt; } But I want to return 16 as output but not wrapped in a CompletableFuture.\nSolution: simply replace thenApply with thenCompose\nasyncRunner(4) .thenACompose(data -\u0026gt; asyncRunner(data)) // returns 16 :) - analogous to flatMap operation .thenAccept(System.out::println) // returns CompletableFuture\u0026lt;Void\u0026gt; Notes Non-blocking operations may run in main thread or in a background thread depending on the duration of the operation!\nrunAsync - For fire and forget tasks supplyAsync - Get a response back from the task - by default uses the ForkJoin pool thenApply - Just like the map method in Stream API thenCompose - Aanalogous to flatMap method in Stream API ", 
+    "url": "https:\/\/thilankal.github.io\/blog\/java\/completable-futures\/then-compose\/"
+        },
+    
     
     
     "https:\/\/thilankal.github.io\/blog\/": {
@@ -239,7 +261,7 @@ How digital audio works We know that sound waves are vibrations travelling throu
 
 
         <footer class="footer">
-    © 2023 Thilanka Liyanaarachchi
+    © 2024 Thilanka Liyanaarachchi
     
 </footer>
 

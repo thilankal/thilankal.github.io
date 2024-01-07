@@ -39,3 +39,7 @@ url = "https://www.linkedin.com/in/thilanka-liyanaarachchi-bb05532a/"
 key = 3
 name = "email"
 url = "mailto:catchthila@gmail.com"
+
+[module]
+[[module.imports]]
+  path = 'nightfall'

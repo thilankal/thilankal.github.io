@@ -6,7 +6,27 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Mar 2023 19:49:23 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Jan 2024 23:53:19 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Streams</title>
+      <link>https://thilankal.github.io/blog/java/streams/</link>
+      <pubDate>Sat, 06 Jan 2024 23:53:19 +0530</pubDate>
+      
+      <guid>https://thilankal.github.io/blog/java/streams/</guid>
+      <description>map vs flatMap map is a one-to-one function map(f1t1) =&amp;gt; Stream&amp;lt;R&amp;gt; flatMap is a one-to-many function map(f1tn) =&amp;gt; Stream&amp;lt;List&amp;lt;R&amp;gt;&amp;gt; </description>
+    </item>
+    
+    <item>
+      <title>Completable Futures - thenApply vs thenCompose</title>
+      <link>https://thilankal.github.io/blog/java/completable-futures/then-compose/</link>
+      <pubDate>Sat, 06 Jan 2024 23:14:07 +0530</pubDate>
+      
+      <guid>https://thilankal.github.io/blog/java/completable-futures/then-compose/</guid>
+      <description>Let&amp;rsquo;s wrap a blocking operation in a CompletablFuture
+public static Integer blockingCall(int x) { return x * 2; } public static CompletableFuture&amp;lt;Integer&amp;gt; asyncRunner(int x) { return CompletableFuture.supplyAsync(() -&amp;gt; blockingCall(x)); } Here we chain the outputs so that it prints the aggregated results. But this will print the future not the value (16)
+public static void main(String[] args) { asyncRunner(4) .thenApply(data -&amp;gt; asyncRunner(data)) // returns CompletableFuture&amp;lt;Integer&amp;gt; yikes! - analogous to map operation .</description>
+    </item>
+    
     <item>
       <title>About</title>
       <link>https://thilankal.github.io/about/</link>

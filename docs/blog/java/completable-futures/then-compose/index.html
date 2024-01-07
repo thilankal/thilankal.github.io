@@ -3,7 +3,7 @@
 
 <head>
     <title>
-Tags | Thilanka Liyanaarachchi
+Completable Futures - thenApply vs thenCompose | Thilanka Liyanaarachchi
 </title>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -12,9 +12,7 @@ Tags | Thilanka Liyanaarachchi
 <meta name="generator" content="Hugo 0.114.0">
 
 
-<link rel="canonical" href="https://thilankal.github.io/tags/" >
-  <link href="https://thilankal.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" >
-  <link href="https://thilankal.github.io/tags/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" >
+<link rel="canonical" href="https://thilankal.github.io/blog/java/completable-futures/then-compose/" >
 <link href="/sass/main.min.edade1a6b5d26a86d4be830e647bf49d1e3e84136c10bc0846c75469fec12f83.css" rel="stylesheet">
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
@@ -98,10 +96,14 @@ Tags | Thilanka Liyanaarachchi
 
 <link href="/css/main.min.ade7f18f233a9adf230931f611844bcf2a2d5c908155c94e5c04e67a7336339f.css" rel="stylesheet">
 
-<meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://thilankal.github.io/tags/" />
+<meta property="og:title" content="Completable Futures - thenApply vs thenCompose" />
+<meta property="og:description" content="Let&rsquo;s wrap a blocking operation in a CompletablFuture
+public static Integer blockingCall(int x) { return x * 2; } public static CompletableFuture&lt;Integer&gt; asyncRunner(int x) { return CompletableFuture.supplyAsync(() -&gt; blockingCall(x)); } Here we chain the outputs so that it prints the aggregated results. But this will print the future not the value (16)
+public static void main(String[] args) { asyncRunner(4) .thenApply(data -&gt; asyncRunner(data)) // returns CompletableFuture&lt;Integer&gt; yikes! - analogous to map operation ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thilankal.github.io/blog/java/completable-futures/then-compose/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-01-06T23:14:07+05:30" />
+<meta property="article:modified_time" content="2024-01-06T23:14:07+05:30" />
 
 
 
@@ -225,67 +227,42 @@ Tags | Thilanka Liyanaarachchi
         <div class="content">
             <main class="main">
                 
-
-<div>
-    <div class="listHeader">
-        <h1>Tags</h1>
-    </div>
-
-    
-
+<div class="postWrapper">
+    <h1>Completable Futures - thenApply vs thenCompose</h1>
+    <div class="date-header">January 6, 2024</div>
     <div>
         
-
-        <a href="https://thilankal.github.io/tags/java/">
-            
-            <div class="postListItem" role="listitem">
-                <div class="postHeader">
-                    <span class="postTitle">java</span>
-                    <span class="postDate">March 24, 2023</span>
-                </div>
-                <div class="postExcerpt">
-                    <p></p>
-                </div>
-            </div>
-        </a>
-
-
         
+        <p><em>Let&rsquo;s wrap a blocking operation in a CompletablFuture</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Integer <span style="color:#a6e22e">blockingCall</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> CompletableFuture<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">asyncRunner</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> x<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> CompletableFuture<span style="color:#f92672">.</span><span style="color:#a6e22e">supplyAsync</span><span style="color:#f92672">(()</span> <span style="color:#f92672">-&gt;</span> blockingCall<span style="color:#f92672">(</span>x<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><em>Here we chain the outputs so that it prints the aggregated results. But this will print the future not the value (16)</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    asyncRunner<span style="color:#f92672">(</span><span style="color:#ae81ff">4</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">.</span><span style="color:#a6e22e">thenApply</span><span style="color:#f92672">(</span>data <span style="color:#f92672">-&gt;</span> asyncRunner<span style="color:#f92672">(</span>data<span style="color:#f92672">))</span> <span style="color:#75715e">// returns CompletableFuture&lt;Integer&gt; yikes!  - analogous to map operation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">.</span><span style="color:#a6e22e">thenAccept</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">)</span> <span style="color:#75715e">// returns CompletableFuture&lt;Void&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><em>But I want to return 16 as output but not wrapped in a CompletableFuture.</em></p>
+<p><em>Solution: simply replace <code>thenApply</code> with <code>thenCompose</code></em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>asyncRunner<span style="color:#f92672">(</span><span style="color:#ae81ff">4</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">.</span><span style="color:#a6e22e">thenACompose</span><span style="color:#f92672">(</span>data <span style="color:#f92672">-&gt;</span> asyncRunner<span style="color:#f92672">(</span>data<span style="color:#f92672">))</span> <span style="color:#75715e">// returns 16 :)  - analogous to flatMap operation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">.</span><span style="color:#a6e22e">thenAccept</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">)</span> <span style="color:#75715e">// returns CompletableFuture&lt;Void&gt;
+</span></span></span></code></pre></div><h2 id="notes">Notes</h2>
+<p>Non-blocking operations may run in main thread or in a background thread depending on the duration of the operation!</p>
+<ul>
+<li><code>runAsync</code> - For fire and forget tasks</li>
+<li><code>supplyAsync</code> - Get a response back from the task - by default uses the ForkJoin pool</li>
+<li><code>thenApply</code> - Just like the <code>map</code> method in <code>Stream</code> API</li>
+<li><code>thenCompose</code> - Aanalogous to <code>flatMap</code> method in <code>Stream</code> API</li>
+</ul>
 
-        <a href="https://thilankal.github.io/tags/music/">
-            
-            <div class="postListItem" role="listitem">
-                <div class="postHeader">
-                    <span class="postTitle">music</span>
-                    <span class="postDate">March 24, 2023</span>
-                </div>
-                <div class="postExcerpt">
-                    <p></p>
-                </div>
-            </div>
-        </a>
-
-
-        
-
-        <a href="https://thilankal.github.io/tags/go/">
-            
-            <div class="postListItem" role="listitem">
-                <div class="postHeader">
-                    <span class="postTitle">go</span>
-                    <span class="postDate">March 22, 2023</span>
-                </div>
-                <div class="postExcerpt">
-                    <p></p>
-                </div>
-            </div>
-        </a>
-
-
-        
     </div>
 </div>
-
 
             </main>
         </div>
