@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 24 Mar 2023 19:49:23 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Odin Language - Installing on macOS Ventura</title>
+      <link>https://thilankal.github.io/blog/odin/install-on-mac/</link>
+      <pubDate>Thu, 18 Jan 2024 23:50:07 +0530</pubDate>
+      
+      <guid>https://thilankal.github.io/blog/odin/install-on-mac/</guid>
+      <description>I just followed the official documentation :) But setting LLVM_CONFIG was not documented
+xcode-select --install brew install llvm@14 echo &amp;#39;export PATH=&amp;#34;/usr/local/opt/llvm/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc_profile export LDFLAGS=&amp;#34;-L/opt/homebrew/opt/llvm@14/lib&amp;#34; export CPPFLAGS=&amp;#34;-I/opt/homebrew/opt/llvm@14/include&amp;#34; export LLVM_CONFIG=&amp;#34;/opt/homebrew/opt/llvm@14/bin/llvm-config </description>
+    </item>
+    
+    <item>
       <title>Streams</title>
       <link>https://thilankal.github.io/blog/java/streams/</link>
       <pubDate>Sat, 06 Jan 2024 23:53:19 +0530</pubDate>
