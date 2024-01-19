@@ -3,7 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://thilankal.github.io/</loc>
-    <lastmod>2024-01-18T23:50:07+05:30</lastmod>
+    <lastmod>2024-01-19T15:52:40+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/blog/java/intellij-docker-debug/intellij-docker-debug/</loc>
+    <lastmod>2024-01-19T15:52:40+05:30</lastmod>
   </url><url>
     <loc>https://thilankal.github.io/blog/odin/install-on-mac/</loc>
     <lastmod>2024-01-18T23:50:07+05:30</lastmod>
@@ -13,6 +16,9 @@
   </url><url>
     <loc>https://thilankal.github.io/blog/java/completable-futures/then-compose/</loc>
     <lastmod>2024-01-06T23:14:07+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/blog/ml/tf-idf-jupyter-notebook/</loc>
+    <lastmod>2023-03-24T23:57:15+05:30</lastmod>
   </url><url>
     <loc>https://thilankal.github.io/blog/</loc>
     <lastmod>2023-03-24T19:49:23+05:30</lastmod>
@@ -46,6 +52,8 @@
   </url><url>
     <loc>https://thilankal.github.io/blog/golang/sine-wave-generator/</loc>
     <lastmod>2023-03-22T10:55:38+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/blog/music/production_course/</loc>
   </url><url>
     <loc>https://thilankal.github.io/search/</loc>
   </url>

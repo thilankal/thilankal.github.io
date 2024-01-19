@@ -9,7 +9,7 @@ B grade movies gg | Thilanka Liyanaarachchi
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="generator" content="Hugo 0.114.0">
+<meta name="generator" content="Hugo 0.111.3">
 
 
 <link rel="canonical" href="https://thilankal.github.io/blog/b/" >
@@ -22,6 +22,17 @@ B grade movies gg | Thilanka Liyanaarachchi
     window.store = {
         
         
+    
+    
+    "https:\/\/thilankal.github.io\/blog\/java\/intellij-docker-debug\/intellij-docker-debug\/": {
+        
+        "title": "IntelliJ debugging in Docker container",
+        "date": "2024-01-19 15:52:40 \u002b0530 \u002b0530",
+            "tags": [],
+    "content": "Scenario So here\u0026rsquo;s the deal. You have a Java application working fine in your local environemnt but whenever it get launched in a container, it crashes. So now you want to debug the app running in the container.\nRequirements IntelliJ IDEA 2023.3.2 (Community Edition) Docker Now in the IntelliJ run configurations add remote\nLet\u0026rsquo;s run the app in question with following flags:\ndocker run --rm -it -p 5005:5005 -e JAVA_TOOL_OPTIONS=\u0026#34;-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n\u0026#34; my-image:0.0.1 That\u0026rsquo;s it! Oh and don\u0026rsquo;t forget to run IntelliJ debug with the above configuration\n", 
+    "url": "https:\/\/thilankal.github.io\/blog\/java\/intellij-docker-debug\/intellij-docker-debug\/"
+        },
+    
     
     
     "https:\/\/thilankal.github.io\/blog\/odin\/install-on-mac\/": {
@@ -53,6 +64,17 @@ B grade movies gg | Thilanka Liyanaarachchi
             "tags": [],
     "content": "Let\u0026rsquo;s wrap a blocking operation in a CompletablFuture\npublic static Integer blockingCall(int x) { return x * 2; } public static CompletableFuture\u0026lt;Integer\u0026gt; asyncRunner(int x) { return CompletableFuture.supplyAsync(() -\u0026gt; blockingCall(x)); } Here we chain the outputs so that it prints the aggregated results. But this will print the future not the value (16)\npublic static void main(String[] args) { asyncRunner(4) .thenApply(data -\u0026gt; asyncRunner(data)) // returns CompletableFuture\u0026lt;Integer\u0026gt; yikes! - analogous to map operation .thenAccept(System.out::println) // returns CompletableFuture\u0026lt;Void\u0026gt; } But I want to return 16 as output but not wrapped in a CompletableFuture.\nSolution: simply replace thenApply with thenCompose\nasyncRunner(4) .thenACompose(data -\u0026gt; asyncRunner(data)) // returns 16 :) - analogous to flatMap operation .thenAccept(System.out::println) // returns CompletableFuture\u0026lt;Void\u0026gt; Notes Non-blocking operations may run in main thread or in a background thread depending on the duration of the operation!\nrunAsync - For fire and forget tasks supplyAsync - Get a response back from the task - by default uses the ForkJoin pool thenApply - Just like the map method in Stream API thenCompose - Aanalogous to flatMap method in Stream API ", 
     "url": "https:\/\/thilankal.github.io\/blog\/java\/completable-futures\/then-compose\/"
+        },
+    
+    
+    
+    "https:\/\/thilankal.github.io\/blog\/ml\/tf-idf-jupyter-notebook\/": {
+        
+        "title": "Tf Idf Jupyter Notebook",
+        "date": "2023-03-24 23:57:15 \u002b0530 \u002b0530",
+            "tags": [],
+    "content": "Installing and running Jupyter notebook pip install jupyter python jupyter notebook Install ML libraries pip install -U scikit-learn pip install -U spaCy pip install -U pandas pip install gensim ", 
+    "url": "https:\/\/thilankal.github.io\/blog\/ml\/tf-idf-jupyter-notebook\/"
         },
     
     
@@ -99,13 +121,24 @@ B grade movies gg | Thilanka Liyanaarachchi
     "url": "https:\/\/thilankal.github.io\/blog\/golang\/sine-wave-generator\/"
         },
     
+    
+    
+    "https:\/\/thilankal.github.io\/blog\/music\/production_course\/": {
+        
+        "title": "",
+        "date": "0001-01-01 00:00:00 \u002b0000 UTC",
+            "tags": [],
+    "content": "", 
+    "url": "https:\/\/thilankal.github.io\/blog\/music\/production_course\/"
+        },
+    
     }
 </script>
 
 
 
 
-<link href="/css/main.min.ade7f18f233a9adf230931f611844bcf2a2d5c908155c94e5c04e67a7336339f.css" rel="stylesheet">
+<link href="/css/main.min.1cf6178933d6ea58fdc7b3d0d62608ec8c1bce33f07a50155254330e40c5f5d5.css" rel="stylesheet">
 
 <meta property="og:title" content="B grade movies gg" />
 <meta property="og:description" content="Someone likes B " />

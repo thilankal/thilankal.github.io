@@ -3,7 +3,7 @@
 
 <head>
     <title>
-go | Thilanka Liyanaarachchi
+IntelliJ debugging in Docker container | Thilanka Liyanaarachchi
 </title>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -12,9 +12,7 @@ go | Thilanka Liyanaarachchi
 <meta name="generator" content="Hugo 0.111.3">
 
 
-<link rel="canonical" href="https://thilankal.github.io/categories/go/" >
-  <link href="https://thilankal.github.io/categories/go/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" >
-  <link href="https://thilankal.github.io/categories/go/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" >
+<link rel="canonical" href="https://thilankal.github.io/blog/java/intellij-docker-debug/intellij-docker-debug/" >
 <link href="/sass/main.min.edade1a6b5d26a86d4be830e647bf49d1e3e84136c10bc0846c75469fec12f83.css" rel="stylesheet">
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
@@ -142,10 +140,15 @@ go | Thilanka Liyanaarachchi
 
 <link href="/css/main.min.1cf6178933d6ea58fdc7b3d0d62608ec8c1bce33f07a50155254330e40c5f5d5.css" rel="stylesheet">
 
-<meta property="og:title" content="go" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://thilankal.github.io/categories/go/" />
+<meta property="og:title" content="IntelliJ debugging in Docker container" />
+<meta property="og:description" content="Scenario So here&rsquo;s the deal. You have a Java application working fine in your local environemnt but whenever it get launched in a container, it crashes. So now you want to debug the app running in the container.
+Requirements IntelliJ IDEA 2023.3.2 (Community Edition) Docker Now in the IntelliJ run configurations add remote
+Let&rsquo;s run the app in question with following flags:
+docker run --rm -it -p 5005:5005 -e JAVA_TOOL_OPTIONS=&#34;-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n&#34; my-image:0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://thilankal.github.io/blog/java/intellij-docker-debug/intellij-docker-debug/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-01-19T15:52:40+05:30" />
+<meta property="article:modified_time" content="2024-01-19T15:52:40+05:30" />
 
 
 
@@ -269,36 +272,36 @@ go | Thilanka Liyanaarachchi
         <div class="content">
             <main class="main">
                 
-
-<div>
-    <div class="listHeader">
-        <h1>go</h1>
-    </div>
-
-    
-
+<div class="postWrapper">
+    <h1>IntelliJ debugging in Docker container</h1>
+    <div class="date-header">January 19, 2024</div>
     <div>
         
-
-        <a href="https://thilankal.github.io/blog/golang/sine-wave-generator/">
-            
-            <div class="postListItem" role="listitem">
-                <div class="postHeader">
-                    <span class="postTitle">Sine wave generator using Golang</span>
-                    <span class="postDate">March 22, 2023</span>
-                </div>
-                <div class="postExcerpt">
-                    <p>Let&rsquo;s build a continuous sine wave generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.
-How digital audio works We know that sound waves are vibrations travelling through air. These vibrations cause air pressure changes from sound source (Generator in our case) to receiver (our ears) over time. It is important to note that air particles do not travel with vibrations to receiver.</p>
-                </div>
-            </div>
-        </a>
-
-
         
-    </div>
-</div>
+        <h2 id="scenario">Scenario</h2>
+<p>So here&rsquo;s the deal. You have a Java application working fine in your local environemnt but whenever it get launched in a container, it crashes. So now you want to debug the app running in the container.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>IntelliJ IDEA 2023.3.2 (Community Edition)</li>
+<li>Docker</li>
+</ul>
+<p>Now in the IntelliJ run configurations add remote</p>
+<p><img src="/blog/java/intellij-docker-debug/intellij-settings-debug.png" alt="Image alt"></p>
+<p><br>
+Let&rsquo;s run the app in question with following flags:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run --rm -it -p 5005:5005 -e JAVA_TOOL_OPTIONS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n&#34;</span> my-image:0.0.1
+</span></span></code></pre></div><p><br>
+That&rsquo;s it! Oh and don&rsquo;t forget to run IntelliJ debug with the above configuration</p>
 
+    </div>
+    
+    <script src="https://giscus.app/client.js" data-repo="thilankal/comments" data-repo-id="R_kgDOLCvxyg"
+        data-category="General" data-category-id="DIC_kwDOLCvxys4CcTwY" data-mapping="pathname" data-strict="0"
+        data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
+        data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async>
+        </script>
+    
+</div>
 
             </main>
         </div>

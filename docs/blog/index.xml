@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 24 Mar 2023 19:49:23 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>IntelliJ debugging in Docker container</title>
+      <link>https://thilankal.github.io/blog/java/intellij-docker-debug/intellij-docker-debug/</link>
+      <pubDate>Fri, 19 Jan 2024 15:52:40 +0530</pubDate>
+      
+      <guid>https://thilankal.github.io/blog/java/intellij-docker-debug/intellij-docker-debug/</guid>
+      <description>Scenario So here&amp;rsquo;s the deal. You have a Java application working fine in your local environemnt but whenever it get launched in a container, it crashes. So now you want to debug the app running in the container.
+Requirements IntelliJ IDEA 2023.3.2 (Community Edition) Docker Now in the IntelliJ run configurations add remote
+Let&amp;rsquo;s run the app in question with following flags:
+docker run --rm -it -p 5005:5005 -e JAVA_TOOL_OPTIONS=&amp;#34;-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n&amp;#34; my-image:0.</description>
+    </item>
+    
+    <item>
       <title>Odin Language - Installing on macOS Ventura</title>
       <link>https://thilankal.github.io/blog/odin/install-on-mac/</link>
       <pubDate>Thu, 18 Jan 2024 23:50:07 +0530</pubDate>
@@ -38,6 +50,15 @@ public static void main(String[] args) { asyncRunner(4) .thenApply(data -&amp;gt
     </item>
     
     <item>
+      <title>Tf Idf Jupyter Notebook</title>
+      <link>https://thilankal.github.io/blog/ml/tf-idf-jupyter-notebook/</link>
+      <pubDate>Fri, 24 Mar 2023 23:57:15 +0530</pubDate>
+      
+      <guid>https://thilankal.github.io/blog/ml/tf-idf-jupyter-notebook/</guid>
+      <description>Installing and running Jupyter notebook pip install jupyter python jupyter notebook Install ML libraries pip install -U scikit-learn pip install -U spaCy pip install -U pandas pip install gensim </description>
+    </item>
+    
+    <item>
       <title>B grade movies gg</title>
       <link>https://thilankal.github.io/blog/b/</link>
       <pubDate>Fri, 24 Mar 2023 00:12:05 +0530</pubDate>
@@ -63,6 +84,15 @@ public static void main(String[] args) { asyncRunner(4) .thenApply(data -&amp;gt
       <guid>https://thilankal.github.io/blog/golang/sine-wave-generator/</guid>
       <description>Let&amp;rsquo;s build a continuous sine wave generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.
 How digital audio works We know that sound waves are vibrations travelling through air. These vibrations cause air pressure changes from sound source (Generator in our case) to receiver (our ears) over time. It is important to note that air particles do not travel with vibrations to receiver.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://thilankal.github.io/blog/music/production_course/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://thilankal.github.io/blog/music/production_course/</guid>
+      <description></description>
     </item>
     
   </channel>
