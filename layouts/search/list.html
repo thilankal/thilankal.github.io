@@ -47,7 +47,8 @@ function displayResults (results, store) {
         const item = store[results[n].ref]
         // build result list elements
         // if you want to style the list, edit this
-        postDate = new Date(item.date).toLocaleDateString('en-US', {
+        // console.log(item);
+        postDate = new Date(item.date.split(' ')[0]).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric'

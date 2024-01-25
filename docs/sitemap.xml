@@ -3,7 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://thilankal.github.io/</loc>
-    <lastmod>2024-01-21T14:03:56+05:30</lastmod>
+    <lastmod>2024-01-22T20:28:21+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/blog/java/collections-vs-iterable/</loc>
+    <lastmod>2024-01-22T20:28:21+05:30</lastmod>
   </url><url>
     <loc>https://thilankal.github.io/blog/kubernates/pod-resource-utilization/</loc>
     <lastmod>2024-01-21T14:03:56+05:30</lastmod>
@@ -29,21 +32,6 @@
     <loc>https://thilankal.github.io/about/</loc>
     <lastmod>2023-03-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://thilankal.github.io/blog/b/</loc>
-    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
-  </url><url>
-    <loc>https://thilankal.github.io/tags/java/</loc>
-    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
-  </url><url>
-    <loc>https://thilankal.github.io/tags/music/</loc>
-    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
-  </url><url>
-    <loc>https://thilankal.github.io/blog/a/</loc>
-    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
-  </url><url>
-    <loc>https://thilankal.github.io/tags/</loc>
-    <lastmod>2023-03-24T00:12:05+05:30</lastmod>
-  </url><url>
     <loc>https://thilankal.github.io/categories/</loc>
     <lastmod>2023-03-22T10:55:38+05:30</lastmod>
   </url><url>
@@ -55,6 +43,11 @@
   </url><url>
     <loc>https://thilankal.github.io/blog/golang/sine-wave-generator/</loc>
     <lastmod>2023-03-22T10:55:38+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/tags/</loc>
+    <lastmod>2023-03-22T10:55:38+05:30</lastmod>
+  </url><url>
+    <loc>https://thilankal.github.io/_blog/</loc>
   </url><url>
     <loc>https://thilankal.github.io/blog/music/production_course/</loc>
   </url><url>

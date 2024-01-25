@@ -9,12 +9,12 @@ Tags | Thilanka Liyanaarachchi
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="generator" content="Hugo 0.111.3">
+<meta name="generator" content="Hugo 0.114.0">
 
 
 <link rel="canonical" href="https://thilankal.github.io/tags/" >
-  <link href="https://thilankal.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="My New Hugo Site" >
-  <link href="https://thilankal.github.io/tags/index.xml" rel="feed" type="application/rss+xml" title="My New Hugo Site" >
+  <link href="https://thilankal.github.io/tags/index.xml" rel="alternate" type="application/rss+xml" title="Thilanka Liyanaarachchi" >
+  <link href="https://thilankal.github.io/tags/index.xml" rel="feed" type="application/rss+xml" title="Thilanka Liyanaarachchi" >
 <link href="/sass/main.min.edade1a6b5d26a86d4be830e647bf49d1e3e84136c10bc0846c75469fec12f83.css" rel="stylesheet">
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
@@ -26,12 +26,23 @@ Tags | Thilanka Liyanaarachchi
         
     
     
+    "https:\/\/thilankal.github.io\/blog\/java\/collections-vs-iterable\/": {
+        
+        "title": "List vs Collections vs Iterable",
+        "date": "2024-01-22 20:28:21 \u002b0530 \u002b0530",
+            "tags": [],
+    "content": "Quick tips Do I care about the sequence of the items? If yes use List else a Collection Do I care about how many items? If yes use Collection else use Iterable ", 
+    "url": "https:\/\/thilankal.github.io\/blog\/java\/collections-vs-iterable\/"
+        },
+    
+    
+    
     "https:\/\/thilankal.github.io\/blog\/kubernates\/pod-resource-utilization\/": {
         
         "title": "Pod Resource Utilization",
         "date": "2024-01-21 14:03:56 \u002b0530 \u002b0530",
             "tags": [],
-    "content": "Getting pod memory First get into the pod using kubectl exec\ncat /sys/fs/cgroup/memory/memory.usage_in_bytes | awk \u0026#39;{ foo = $1 / 1024 / 1024 ; print foo \u0026#34;MB\u0026#34; }\u0026#39; ", 
+    "content": "Getting pod memory First get into the pod using kubectl exec\n1 cat /sys/fs/cgroup/memory/memory.usage_in_bytes | awk \u0026#39;{ foo = $1 / 1024 / 1024 ; print foo \u0026#34;MB\u0026#34; }\u0026#39; ", 
     "url": "https:\/\/thilankal.github.io\/blog\/kubernates\/pod-resource-utilization\/"
         },
     
@@ -42,7 +53,7 @@ Tags | Thilanka Liyanaarachchi
         "title": "IntelliJ debugging in Docker container",
         "date": "2024-01-19 15:52:40 \u002b0530 \u002b0530",
             "tags": [],
-    "content": "Scenario So here\u0026rsquo;s the deal. You have a Java application working fine in your local environemnt but whenever it get launched in a container, it crashes. So now you want to debug the app running in the container.\nRequirements IntelliJ IDEA 2023.3.2 (Community Edition) Docker Now in the IntelliJ run configurations add remote\nLet\u0026rsquo;s run the app in question with following flags:\ndocker run --rm -it -p 5005:5005 -e JAVA_TOOL_OPTIONS=\u0026#34;-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n\u0026#34; my-image:0.0.1 That\u0026rsquo;s it! Oh and don\u0026rsquo;t forget to run IntelliJ debug with the above configuration\n", 
+    "content": "Scenario So here\u0026rsquo;s the deal. You have a Java application working fine in your local environemnt but whenever it get launched in a container, it crashes. So now you want to debug the app running in the container.\nRequirements IntelliJ IDEA 2023.3.2 (Community Edition) Docker Now in the IntelliJ run configurations add remote\nLet\u0026rsquo;s run the app in question with following flags:\n1 docker run --rm -it -p 5005:5005 -e JAVA_TOOL_OPTIONS=\u0026#34;-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n\u0026#34; my-image:0.0.1 That\u0026rsquo;s it! Oh and don\u0026rsquo;t forget to run IntelliJ debug with the above configuration\n", 
     "url": "https:\/\/thilankal.github.io\/blog\/java\/intellij-docker-debug\/intellij-docker-debug\/"
         },
     
@@ -53,7 +64,7 @@ Tags | Thilanka Liyanaarachchi
         "title": "Odin Language - Installing on macOS Ventura",
         "date": "2024-01-18 23:50:07 \u002b0530 \u002b0530",
             "tags": [],
-    "content": "I just followed the official documentation :) But setting LLVM_CONFIG was not documented\nxcode-select --install brew install llvm@14 echo \u0026#39;export PATH=\u0026#34;/usr/local/opt/llvm/bin:$PATH\u0026#34;\u0026#39; \u0026gt;\u0026gt; ~/.zshrc_profile export LDFLAGS=\u0026#34;-L/opt/homebrew/opt/llvm@14/lib\u0026#34; export CPPFLAGS=\u0026#34;-I/opt/homebrew/opt/llvm@14/include\u0026#34; export LLVM_CONFIG=\u0026#34;/opt/homebrew/opt/llvm@14/bin/llvm-config ", 
+    "content": "I just followed the official documentation :) But setting LLVM_CONFIG was not documented\n1 2 3 4 5 6 7 8 9 10 11 xcode-select --install brew install llvm@14 echo \u0026#39;export PATH=\u0026#34;/usr/local/opt/llvm/bin:$PATH\u0026#34;\u0026#39; \u0026gt;\u0026gt; ~/.zshrc_profile export LDFLAGS=\u0026#34;-L/opt/homebrew/opt/llvm@14/lib\u0026#34; export CPPFLAGS=\u0026#34;-I/opt/homebrew/opt/llvm@14/include\u0026#34; export LLVM_CONFIG=\u0026#34;/opt/homebrew/opt/llvm@14/bin/llvm-config ", 
     "url": "https:\/\/thilankal.github.io\/blog\/odin\/install-on-mac\/"
         },
     
@@ -75,7 +86,7 @@ Tags | Thilanka Liyanaarachchi
         "title": "Completable Futures - thenApply vs thenCompose",
         "date": "2024-01-06 23:14:07 \u002b0530 \u002b0530",
             "tags": [],
-    "content": "Let\u0026rsquo;s wrap a blocking operation in a CompletablFuture\npublic static Integer blockingCall(int x) { return x * 2; } public static CompletableFuture\u0026lt;Integer\u0026gt; asyncRunner(int x) { return CompletableFuture.supplyAsync(() -\u0026gt; blockingCall(x)); } Here we chain the outputs so that it prints the aggregated results. But this will print the future not the value (16)\npublic static void main(String[] args) { asyncRunner(4) .thenApply(data -\u0026gt; asyncRunner(data)) // returns CompletableFuture\u0026lt;Integer\u0026gt; yikes! - analogous to map operation .thenAccept(System.out::println) // returns CompletableFuture\u0026lt;Void\u0026gt; } But I want to return 16 as output but not wrapped in a CompletableFuture.\nSolution: simply replace thenApply with thenCompose\nasyncRunner(4) .thenACompose(data -\u0026gt; asyncRunner(data)) // returns 16 :) - analogous to flatMap operation .thenAccept(System.out::println) // returns CompletableFuture\u0026lt;Void\u0026gt; Notes Non-blocking operations may run in main thread or in a background thread depending on the duration of the operation!\nrunAsync - For fire and forget tasks supplyAsync - Get a response back from the task - by default uses the ForkJoin pool thenApply - Just like the map method in Stream API thenCompose - Aanalogous to flatMap method in Stream API ", 
+    "content": "Let\u0026rsquo;s wrap a blocking operation in a CompletablFuture\n1 2 3 4 5 6 7 public static Integer blockingCall(int x) { return x * 2; } public static CompletableFuture\u0026lt;Integer\u0026gt; asyncRunner(int x) { return CompletableFuture.supplyAsync(() -\u0026gt; blockingCall(x)); } Here we chain the outputs so that it prints the aggregated results. But this will print the future not the value (16)\n1 2 3 4 5 public static void main(String[] args) { asyncRunner(4) .thenApply(data -\u0026gt; asyncRunner(data)) // returns CompletableFuture\u0026lt;Integer\u0026gt; yikes! - analogous to map operation .thenAccept(System.out::println) // returns CompletableFuture\u0026lt;Void\u0026gt; } But I want to return 16 as output but not wrapped in a CompletableFuture.\nSolution: simply replace thenApply with thenCompose\n1 2 3 asyncRunner(4) .thenACompose(data -\u0026gt; asyncRunner(data)) // returns 16 :) - analogous to flatMap operation .thenAccept(System.out::println) // returns CompletableFuture\u0026lt;Void\u0026gt; Notes Non-blocking operations may run in main thread or in a background thread depending on the duration of the operation!\nrunAsync - For fire and forget tasks supplyAsync - Get a response back from the task - by default uses the ForkJoin pool thenApply - Just like the map method in Stream API thenCompose - Aanalogous to flatMap method in Stream API ", 
     "url": "https:\/\/thilankal.github.io\/blog\/java\/completable-futures\/then-compose\/"
         },
     
@@ -86,7 +97,7 @@ Tags | Thilanka Liyanaarachchi
         "title": "Tf Idf Jupyter Notebook",
         "date": "2023-03-24 23:57:15 \u002b0530 \u002b0530",
             "tags": [],
-    "content": "Installing and running Jupyter notebook pip install jupyter python jupyter notebook Install ML libraries pip install -U scikit-learn pip install -U spaCy pip install -U pandas pip install gensim ", 
+    "content": "Installing and running Jupyter notebook 1 2 3 pip install jupyter python jupyter notebook Install ML libraries 1 2 3 4 pip install -U scikit-learn pip install -U spaCy pip install -U pandas pip install gensim ", 
     "url": "https:\/\/thilankal.github.io\/blog\/ml\/tf-idf-jupyter-notebook\/"
         },
     
@@ -103,34 +114,12 @@ Tags | Thilanka Liyanaarachchi
     
     
     
-    "https:\/\/thilankal.github.io\/blog\/b\/": {
-        
-        "title": "B grade movies gg",
-        "date": "2023-03-24 00:12:05 \u002b0530 \u002b0530",
-            "tags": [],
-    "content": "Someone likes B ", 
-    "url": "https:\/\/thilankal.github.io\/blog\/b\/"
-        },
-    
-    
-    
-    "https:\/\/thilankal.github.io\/blog\/a\/": {
-        
-        "title": "Notion of music gg",
-        "date": "2023-03-24 00:12:05 \u002b0530 \u002b0530",
-            "tags": [ "java",  "music", ],
-    "content": "This is post is not about music\n", 
-    "url": "https:\/\/thilankal.github.io\/blog\/a\/"
-        },
-    
-    
-    
     "https:\/\/thilankal.github.io\/blog\/golang\/sine-wave-generator\/": {
         
         "title": "Sine wave generator using Golang",
         "date": "2023-03-22 10:55:38 \u002b0530 \u002b0530",
             "tags": [ "go", ],
-    "content": "Let\u0026rsquo;s build a continuous sine wave generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.\nHow digital audio works We know that sound waves are vibrations travelling through air. These vibrations cause air pressure changes from sound source (Generator in our case) to receiver (our ears) over time. It is important to note that air particles do not travel with vibrations to receiver. So fundamentally the air pressure and the time is only needed to capture sound from the receiver\u0026rsquo;s perspective.\nNumber of pressure variations per second is called the frequency of sound. The size of the pressure difference is called the amplitude of the sound. Silence is when the sound pressure remains at the atmospheric pressure.\nSample rate and Nyquist theorem In order to represent sounds in the digital world, we need to take samples of sound pressure levels at a regular intervals. Number of samples taken per second is known as the sample rate. A higher sample rate can accurately represent an audio signal at the cost of increased processing power and memory while a lower sample rate may miss higher frequencies. So it\u0026rsquo;s clear that sample rate depends on the frequency of the signal. Since human hearing is limited to 20hz to 20Khz frequency range, our sample rate should support this range. But how do we know the optimum sample rate for reproducing an audio signal in our audible frequency spectrum? Well Nyquist–Shannon sampling theorem states that it\u0026rsquo;s possible to reproduce any sound if the sampling rate is two times the highest frequency of the source signal. Since most humans cannot listen to frequencies above 20khz, a sample rate of 40khz is theoretically sufficient. But the CD quality standard is defined as 44.1kHz/44000Hz.\nWhat we are going to build? We are going to build a sound wave generator that\u0026rsquo;s going to emit a sine wave with a given frequency continuously in Go.\nWe will be using beep go package to process audio signals and playback sounds. Beep uses oto under the hood for audio playback.\nSetting up project Create a new directory and initialize root module\ngo mod init github.com/nuwan89/sine-generator This will create the root module as follows:\nmodule github.com/nuwan89/sine-generator go 1.17 Installing Go dependencies go get github.com/faiface/beep go get github.com/hajimehoshi/oto Initializing beep Stick the below code inside the main function. Don\u0026rsquo;t worry we\u0026rsquo;ll go through each line.\nfunc main() { sr := beep.SampleRate(44100) speaker.Init(sr, sr.N(time.Second/10)) // sr.N(time.Second/10) = buffer size for duration 1/10 second sine, _ := SineTone(sr, 100) speaker.Play(sine) select {} // makes the program hang forever } Firstly we define the sample rate as 44100Hz. Then we initialize the Speaker with the sample rate and the buffer size (one tenth of a second). Instead of reading samples in real-time, the speaker reads from a buffer with a delay. This allows the audio to be played back in a continuous manner without drop outs and glitches. SineTone is a builder function for a Streamer that we are going to implement in which its only job is to stream infinite sequence of audio samples. It needs a sample rate and a frequency (100Hz) Finally we can blast audio through the speakers using the given Streamer :) type SineWave struct { sampleFactor float64 // Just for ease of use so that we don\u0026#39;t have to calculate every sample phase float64 } func (g *SineWave) Stream(samples [][2]float64) (n int, ok bool) { for i := range samples { // increment = ((2 * PI) / SampleRate) * freq v := math.Sin(g.phase * 2.0 * math.Pi) // period of the wave is thus defined as: 2 * PI. samples[i][0] = v samples[i][1] = v _, g.phase = math.Modf(g.phase + g.sampleFactor) } return len(samples), true } func (*SineWave) Err() error { return nil } SineWave is just a struct which stores properties of our sine wave. Phase of the sound wave is basically the current position of the sine wave. This is represented by radians.\nStream function is the most important one here. It receives a two-dimensional array which we are going to fill. Each dimension represents left and right channel of the signal.\nWe are looping through each sample point and calculate the sine value of the phase.\nWe need to factor in frequency for calculating the next phase.\nmath.Modf gives us the fractional component so that the phase cycles between 0 - 1\nI have copied the SineTone initializer method for the sake of completeness.\nfunc SineTone(sr beep.SampleRate, freq float64) (beep.Streamer, error) { dt := freq / float64(sr) if dt \u0026gt;= 1.0/2.0 { return nil, errors.New(\u0026#34;samplerate must be at least 2 times grater then frequency\u0026#34;) } return \u0026amp;SineWave{dt, 0.1}, nil } Oh and one more thing.. You need to run tidy command to add import statements in your module file:\ngo mod tidy Finally you can run it using:\ngo run main.go Enjoy the never ending 100Hz sine wave awesomeness! :)\nGitHub project\n", 
+    "content": "Let\u0026rsquo;s build a continuous sine wave generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.\nHow digital audio works We know that sound waves are vibrations travelling through air. These vibrations cause air pressure changes from sound source (Generator in our case) to receiver (our ears) over time. It is important to note that air particles do not travel with vibrations to receiver. So fundamentally the air pressure and the time is only needed to capture sound from the receiver\u0026rsquo;s perspective.\nNumber of pressure variations per second is called the frequency of sound. The size of the pressure difference is called the amplitude of the sound. Silence is when the sound pressure remains at the atmospheric pressure.\nSample rate and Nyquist theorem In order to represent sounds in the digital world, we need to take samples of sound pressure levels at a regular intervals. Number of samples taken per second is known as the sample rate. A higher sample rate can accurately represent an audio signal at the cost of increased processing power and memory while a lower sample rate may miss higher frequencies. So it\u0026rsquo;s clear that sample rate depends on the frequency of the signal. Since human hearing is limited to 20hz to 20Khz frequency range, our sample rate should support this range. But how do we know the optimum sample rate for reproducing an audio signal in our audible frequency spectrum? Well Nyquist–Shannon sampling theorem states that it\u0026rsquo;s possible to reproduce any sound if the sampling rate is two times the highest frequency of the source signal. Since most humans cannot listen to frequencies above 20khz, a sample rate of 40khz is theoretically sufficient. But the CD quality standard is defined as 44.1kHz/44000Hz.\nWhat we are going to build? We are going to build a sound wave generator that\u0026rsquo;s going to emit a sine wave with a given frequency continuously in Go.\nWe will be using beep go package to process audio signals and playback sounds. Beep uses oto under the hood for audio playback.\nSetting up project Create a new directory and initialize root module\n1 go mod init github.com/nuwan89/sine-generator This will create the root module as follows:\n1 2 3 module github.com/nuwan89/sine-generator go 1.17 Installing Go dependencies 1 2 go get github.com/faiface/beep go get github.com/hajimehoshi/oto Initializing beep Stick the below code inside the main function. Don\u0026rsquo;t worry we\u0026rsquo;ll go through each line.\n1 2 3 4 5 6 7 func main() { sr := beep.SampleRate(44100) speaker.Init(sr, sr.N(time.Second/10)) // sr.N(time.Second/10) = buffer size for duration 1/10 second sine, _ := SineTone(sr, 100) speaker.Play(sine) select {} // makes the program hang forever } Firstly we define the sample rate as 44100Hz. Then we initialize the Speaker with the sample rate and the buffer size (one tenth of a second). Instead of reading samples in real-time, the speaker reads from a buffer with a delay. This allows the audio to be played back in a continuous manner without drop outs and glitches. SineTone is a builder function for a Streamer that we are going to implement in which its only job is to stream infinite sequence of audio samples. It needs a sample rate and a frequency (100Hz) Finally we can blast audio through the speakers using the given Streamer :) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 type SineWave struct { sampleFactor float64 // Just for ease of use so that we don\u0026#39;t have to calculate every sample phase float64 } func (g *SineWave) Stream(samples [][2]float64) (n int, ok bool) { for i := range samples { // increment = ((2 * PI) / SampleRate) * freq v := math.Sin(g.phase * 2.0 * math.Pi) // period of the wave is thus defined as: 2 * PI. samples[i][0] = v samples[i][1] = v _, g.phase = math.Modf(g.phase + g.sampleFactor) } return len(samples), true } func (*SineWave) Err() error { return nil } SineWave is just a struct which stores properties of our sine wave. Phase of the sound wave is basically the current position of the sine wave. This is represented by radians.\nStream function is the most important one here. It receives a two-dimensional array which we are going to fill. Each dimension represents left and right channel of the signal.\nWe are looping through each sample point and calculate the sine value of the phase.\nWe need to factor in frequency for calculating the next phase.\nmath.Modf gives us the fractional component so that the phase cycles between 0 - 1\nI have copied the SineTone initializer method for the sake of completeness.\n1 2 3 4 5 6 7 8 9 10 func SineTone(sr beep.SampleRate, freq float64) (beep.Streamer, error) { dt := freq / float64(sr) if dt \u0026gt;= 1.0/2.0 { return nil, errors.New(\u0026#34;samplerate must be at least 2 times grater then frequency\u0026#34;) } return \u0026amp;SineWave{dt, 0.1}, nil } Oh and one more thing.. You need to run tidy command to add import statements in your module file:\n1 go mod tidy Finally you can run it using:\n1 go run main.go Enjoy the never ending 100Hz sine wave awesomeness! :)\nGitHub project\n", 
     "url": "https:\/\/thilankal.github.io\/blog\/golang\/sine-wave-generator\/"
         },
     
@@ -151,7 +140,7 @@ Tags | Thilanka Liyanaarachchi
 
 
 
-<link href="/css/main.min.1cf6178933d6ea58fdc7b3d0d62608ec8c1bce33f07a50155254330e40c5f5d5.css" rel="stylesheet">
+<link href="/css/main.min.ec300ac3a9412165e0dbdf4b385c600ee7d3ef5769638f459d15c9a1d0142e0e.css" rel="stylesheet">
 
 <meta property="og:title" content="Tags" />
 <meta property="og:description" content="" />
@@ -289,38 +278,6 @@ Tags | Thilanka Liyanaarachchi
     
 
     <div>
-        
-
-        <a href="https://thilankal.github.io/tags/java/">
-            
-            <div class="postListItem" role="listitem">
-                <div class="postHeader">
-                    <span class="postTitle">java</span>
-                    <span class="postDate">March 24, 2023</span>
-                </div>
-                <div class="postExcerpt">
-                    <p></p>
-                </div>
-            </div>
-        </a>
-
-
-        
-
-        <a href="https://thilankal.github.io/tags/music/">
-            
-            <div class="postListItem" role="listitem">
-                <div class="postHeader">
-                    <span class="postTitle">music</span>
-                    <span class="postDate">March 24, 2023</span>
-                </div>
-                <div class="postExcerpt">
-                    <p></p>
-                </div>
-            </div>
-        </a>
-
-
         
 
         <a href="https://thilankal.github.io/tags/go/">

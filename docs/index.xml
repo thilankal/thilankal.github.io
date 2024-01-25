@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>Thilanka Liyanaarachchi</title>
     <link>https://thilankal.github.io/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on Thilanka Liyanaarachchi</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jan 2024 14:03:56 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Jan 2024 20:28:21 +0530</lastBuildDate><atom:link href="https://thilankal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>List vs Collections vs Iterable</title>
+      <link>https://thilankal.github.io/blog/java/collections-vs-iterable/</link>
+      <pubDate>Mon, 22 Jan 2024 20:28:21 +0530</pubDate>
+      
+      <guid>https://thilankal.github.io/blog/java/collections-vs-iterable/</guid>
+      <description>Quick tips Do I care about the sequence of the items? If yes use List else a Collection Do I care about how many items? If yes use Collection else use Iterable </description>
+    </item>
+    
     <item>
       <title>Pod Resource Utilization</title>
       <link>https://thilankal.github.io/blog/kubernates/pod-resource-utilization/</link>
@@ -14,7 +23,7 @@
       
       <guid>https://thilankal.github.io/blog/kubernates/pod-resource-utilization/</guid>
       <description>Getting pod memory First get into the pod using kubectl exec
-cat /sys/fs/cgroup/memory/memory.usage_in_bytes | awk &amp;#39;{ foo = $1 / 1024 / 1024 ; print foo &amp;#34;MB&amp;#34; }&amp;#39; </description>
+1 cat /sys/fs/cgroup/memory/memory.usage_in_bytes | awk &amp;#39;{ foo = $1 / 1024 / 1024 ; print foo &amp;#34;MB&amp;#34; }&amp;#39; </description>
     </item>
     
     <item>
@@ -26,7 +35,7 @@ cat /sys/fs/cgroup/memory/memory.usage_in_bytes | awk &amp;#39;{ foo = $1 / 1024
       <description>Scenario So here&amp;rsquo;s the deal. You have a Java application working fine in your local environemnt but whenever it get launched in a container, it crashes. So now you want to debug the app running in the container.
 Requirements IntelliJ IDEA 2023.3.2 (Community Edition) Docker Now in the IntelliJ run configurations add remote
 Let&amp;rsquo;s run the app in question with following flags:
-docker run --rm -it -p 5005:5005 -e JAVA_TOOL_OPTIONS=&amp;#34;-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n&amp;#34; my-image:0.</description>
+1 docker run --rm -it -p 5005:5005 -e JAVA_TOOL_OPTIONS=&amp;#34;-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n&amp;#34; my-image:0.</description>
     </item>
     
     <item>
@@ -36,7 +45,7 @@ docker run --rm -it -p 5005:5005 -e JAVA_TOOL_OPTIONS=&amp;#34;-agentlib:jdwp=tr
       
       <guid>https://thilankal.github.io/blog/odin/install-on-mac/</guid>
       <description>I just followed the official documentation :) But setting LLVM_CONFIG was not documented
-xcode-select --install brew install llvm@14 echo &amp;#39;export PATH=&amp;#34;/usr/local/opt/llvm/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc_profile export LDFLAGS=&amp;#34;-L/opt/homebrew/opt/llvm@14/lib&amp;#34; export CPPFLAGS=&amp;#34;-I/opt/homebrew/opt/llvm@14/include&amp;#34; export LLVM_CONFIG=&amp;#34;/opt/homebrew/opt/llvm@14/bin/llvm-config </description>
+1 2 3 4 5 6 7 8 9 10 11 xcode-select --install brew install llvm@14 echo &amp;#39;export PATH=&amp;#34;/usr/local/opt/llvm/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.zshrc_profile export LDFLAGS=&amp;#34;-L/opt/homebrew/opt/llvm@14/lib&amp;#34; export CPPFLAGS=&amp;#34;-I/opt/homebrew/opt/llvm@14/include&amp;#34; export LLVM_CONFIG=&amp;#34;/opt/homebrew/opt/llvm@14/bin/llvm-config </description>
     </item>
     
     <item>
@@ -55,8 +64,8 @@ xcode-select --install brew install llvm@14 echo &amp;#39;export PATH=&amp;#34;/
       
       <guid>https://thilankal.github.io/blog/java/completable-futures/then-compose/</guid>
       <description>Let&amp;rsquo;s wrap a blocking operation in a CompletablFuture
-public static Integer blockingCall(int x) { return x * 2; } public static CompletableFuture&amp;lt;Integer&amp;gt; asyncRunner(int x) { return CompletableFuture.supplyAsync(() -&amp;gt; blockingCall(x)); } Here we chain the outputs so that it prints the aggregated results. But this will print the future not the value (16)
-public static void main(String[] args) { asyncRunner(4) .thenApply(data -&amp;gt; asyncRunner(data)) // returns CompletableFuture&amp;lt;Integer&amp;gt; yikes! - analogous to map operation .</description>
+1 2 3 4 5 6 7 public static Integer blockingCall(int x) { return x * 2; } public static CompletableFuture&amp;lt;Integer&amp;gt; asyncRunner(int x) { return CompletableFuture.supplyAsync(() -&amp;gt; blockingCall(x)); } Here we chain the outputs so that it prints the aggregated results. But this will print the future not the value (16)
+1 2 3 4 5 public static void main(String[] args) { asyncRunner(4) .</description>
     </item>
     
     <item>
@@ -65,7 +74,7 @@ public static void main(String[] args) { asyncRunner(4) .thenApply(data -&amp;gt
       <pubDate>Fri, 24 Mar 2023 23:57:15 +0530</pubDate>
       
       <guid>https://thilankal.github.io/blog/ml/tf-idf-jupyter-notebook/</guid>
-      <description>Installing and running Jupyter notebook pip install jupyter python jupyter notebook Install ML libraries pip install -U scikit-learn pip install -U spaCy pip install -U pandas pip install gensim </description>
+      <description>Installing and running Jupyter notebook 1 2 3 pip install jupyter python jupyter notebook Install ML libraries 1 2 3 4 pip install -U scikit-learn pip install -U spaCy pip install -U pandas pip install gensim </description>
     </item>
     
     <item>
@@ -79,24 +88,6 @@ I also have expertise in DevOps, with experience working with AWS, GitLab, Kuber
     </item>
     
     <item>
-      <title>B grade movies gg</title>
-      <link>https://thilankal.github.io/blog/b/</link>
-      <pubDate>Fri, 24 Mar 2023 00:12:05 +0530</pubDate>
-      
-      <guid>https://thilankal.github.io/blog/b/</guid>
-      <description>Someone likes B </description>
-    </item>
-    
-    <item>
-      <title>Notion of music gg</title>
-      <link>https://thilankal.github.io/blog/a/</link>
-      <pubDate>Fri, 24 Mar 2023 00:12:05 +0530</pubDate>
-      
-      <guid>https://thilankal.github.io/blog/a/</guid>
-      <description>This is post is not about music</description>
-    </item>
-    
-    <item>
       <title>Sine wave generator using Golang</title>
       <link>https://thilankal.github.io/blog/golang/sine-wave-generator/</link>
       <pubDate>Wed, 22 Mar 2023 10:55:38 +0530</pubDate>
@@ -104,6 +95,15 @@ I also have expertise in DevOps, with experience working with AWS, GitLab, Kuber
       <guid>https://thilankal.github.io/blog/golang/sine-wave-generator/</guid>
       <description>Let&amp;rsquo;s build a continuous sine wave generator with Go. This could be the first step into creating your ground breaking synthesizer, who knows :) But some theory first before we dive in.
 How digital audio works We know that sound waves are vibrations travelling through air. These vibrations cause air pressure changes from sound source (Generator in our case) to receiver (our ears) over time. It is important to note that air particles do not travel with vibrations to receiver.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://thilankal.github.io/_blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://thilankal.github.io/_blog/</guid>
+      <description></description>
     </item>
     
     <item>

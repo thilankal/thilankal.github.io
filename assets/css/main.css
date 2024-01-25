@@ -1,18 +1,31 @@
-/* css media query */
+@import url('https://fonts.cdnfonts.com/css/jetbrains-mono');
+
+body {
+  color: #b4bfc9;
+  background-color: rgb(34, 35, 36);
+}
+
+code {
+  font-family: 'JetBrains Mono', sans-serif;
+}
 
 @media screen and (max-width: 600px) {
-    .content {
-        width: 100%;
-    }
+  .content {
+    width: 100%;
+  }
 }
 
 .date-header {
-    color: rgb(144, 158, 170);
-    margin-top: -1rem;
-    margin-bottom: 2rem;
+  color: rgb(144, 158, 170);
+  margin-top: -1rem;
+  margin-bottom: 2rem;
 }
 
-img{
-    max-width: 100%;
-    height: auto;
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.postTitle {
+  color: #b29b57;
 }

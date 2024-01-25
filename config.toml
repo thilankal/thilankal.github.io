@@ -1,9 +1,13 @@
 baseURL = 'https://thilankal.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Thilanka Liyanaarachchi'
 theme = 'nightfall'
 publishDir = 'docs'
 
+[markup]
+  [markup.highlight]
+  style = 'gruvbox'
+  linenos = true
 
 [params]
 author = "Thilanka Liyanaarachchi"
